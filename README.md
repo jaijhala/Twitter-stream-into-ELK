@@ -42,3 +42,5 @@ You can modify the keywords above as per your need.
   Start feeding twitter data by running Logstash with the above conf file. 
   
 4). Please refer to attached sample Dashboard. 
+
+Reference: This example is based on https://github.com/elastic/examples/tree/master/ElasticStack_twitter
