@@ -9,32 +9,32 @@ Once you create that, keep note of the API Keys and Access Tokens.
 
 2). Create a file twitter_logstash.conf and add following contents -> 
 
-input {
-  twitter {
-    consumer_key       => "YOUR CONSUMER KEY"
-    consumer_secret    => "YOUR SECRET KEY"
-    oauth_token        => "YOUR TOKEN"
-    oauth_token_secret => "YOUR TOKEN SECRET"
-    keywords           =>["hack", "breach","cybersecurity", "malware","cybercrime","cyberattack"]
-    full_tweet         => true
-  }
-}
+    input {
+            twitter {
+                      consumer_key       => "YOUR CONSUMER KEY"
+                      consumer_secret    => "YOUR SECRET KEY"
+                      oauth_token        => "YOUR TOKEN"
+                      oauth_token_secret => "YOUR TOKEN SECRET"
+                      keywords           => ["hack", "breach","cybersecurity", "malware","cybercrime","cyberattack"]
+                      full_tweet         => true
+                    }
+          }
 
-filter { }
+    filter { }
 
-output {
-  stdout {
-    codec => dots
-  }
-  elasticsearch {
-      hosts => "localhost:9200"
-      index         => "twitter-feed"
-      document_type => "tweets"
-      template      => "elastic/twitter_elastic_example/twitter_template.json"
-      template_name => "twitter_feed"
-      template_overwrite => true
-  }
-}
+    output {
+              stdout {
+              codec => dots
+                     }
+              elasticsearch {
+                              hosts => "localhost:9200"
+                              index => "twitter-feed"
+                              document_type => "tweets"
+                              template => "elastic/twitter_elastic_example/twitter_template.json"
+                              template_name => "twitter_feed"
+                              template_overwrite => true
+                            }
+          }
 
 You can modify the keywords above as per your need.
 
